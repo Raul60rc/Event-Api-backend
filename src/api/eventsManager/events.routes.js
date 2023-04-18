@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {verifyJwt} = require ("../eventsManager/events.model");
+const jwt = require ("../../../utils/jwt/jwt")
 
 const Events = require ("../eventsManager/events.model");
 
@@ -97,7 +98,7 @@ router.get("/getidbyemail/:email", async (req, res) => {
     }
   });
   
-  outer.get("/all", async (req, res) => {
+  router.get("/all", async (req, res) => {
     try {
       const authorization = req.headers.authorization || ""; // same logic as Token
   
